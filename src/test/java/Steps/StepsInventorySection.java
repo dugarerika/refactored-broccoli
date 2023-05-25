@@ -28,13 +28,6 @@ public class StepsInventorySection {
 //        Utilities.closeExplorer(); Utilities.closeProcess();
 //    }
 
-    @And("the user login into the vendor with Admin credentials")
-    public void theUserLoginIntoTheVendorWithAdminCredentials(DataTable table) {
-        List<List<String>> data = table.asLists(String.class);
-        objLogin.fillLogin(data.get(1).get(0), data.get(1).get(1));
-        objLogin.btnlogInVendor();
-    }
-
     @When("the user clicks on the inventory icon")
     public void theUserClicksOnTheInventoryIcon() {
         objInventory.btnInventory();
@@ -95,9 +88,18 @@ public class StepsInventorySection {
         objInventory.btnAddIcon();
     }
 
+    @And("the user login into the vendor with Admin credentials")
+    public void theUserLoginIntoTheVendorWithAdminCredentials(DataTable table) {
+        List<List<String>> data = table.asLists(String.class);
+        objLogin.fillLogin(data.get(1).get(0), data.get(1).get(1));
+        objLogin.btnlogInVendor();
+    }
+
     @And("type a New Brand")
-    public void typeANewBrand() {
-        objInventory.fillBrandName("NUEVA");
+    public void typeANewBrand(DataTable table) {
+        List<List<String>> data = table.asLists(String.class);
+        objInventory.fillBrandName(data.get(1).get(0));
+
     }
 
     @And("Click on CREATE button")
@@ -107,6 +109,37 @@ public class StepsInventorySection {
 
     @Then("the new brand is added successfully")
     public void theNewBrandIsAddedSuccessfully() {
+    }
+
+    @And("the user clicks on the delete icon button")
+    public void theUserClicksOnTheDeleteIconButton() {
+        objInventory.DeleteIcon();
+    }
+
+    @Then("the delete product modal is displayed")
+    public void theDeleteProductModalIsDisplayed() {
+        objInventory.chckDeleteModal();
+    }
+
+    @And("click on DELETE")
+    public void clickOnDELETE() {
+       objInventory.btnConfirmDelete();
+    }
+
+    @Then("The product is delete successfully")
+    public void theProductIsDeleteSuccessfully() {
+       objInventory.chckMessageDelete();
+       Utilities.wt( 1000);
+    }
+
+    @And("click on CANCEL")
+    public void clickOnCANCEL() {
+       objInventory.btnCancelDelete();
+    }
+
+    @And("([^\"]*) info$")
+    public void costpriceInfo(String CostPrice) {
+       objInventory.fillFormNonReq(CostPrice);
     }
 
 //    @AfterAll

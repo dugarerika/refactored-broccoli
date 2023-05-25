@@ -17,23 +17,32 @@ public class Inventory {
     private final By MNGBRANDEDIT = By.xpath("//span[text()='LOL']//following-sibling::div/button[@aria-label='Edit']/i");
     private final By MNGBRANDDELETE = By.xpath("//span[text()='LOL']//following-sibling::div/button[@aria-label='Delete']/i");
     private final By BRANDDELETE = By.xpath("//*/button[text()='Delete']");
-//    private final By BRANDACEPTE = By.xpath("//*/button[text()='Delete']");
+
     private final By MNGBRANDCLOSE = By.xpath("//div[3]/div/button/i[@class='fal fa-times']");
     private final By ADDPRODUCT = By.xpath("//button[text()='Add Product']");
+    private final By DELETEMODAL = By.xpath("//div/div/div/p[contains(text(), 'Are you sure you want to delete')]");
+    private final By CONFIRMDELETE = By.xpath("//div/button[text()='Delete']");
+    private final By CANCELDELETE = By.xpath("//div/button[text()='Cancel']");
 
-    // Add product form
+    //Actions buttons
+    private final By DELETEICON = By.xpath("//tr[1]/td[7]/button[@aria-label='Delete']");
+
+    // Product form fields
     private final By PRODUCTNAME = By.xpath("//div/label[text()='Product Name']//following-sibling::div/input");
     private final By PRODUCTBRAND = By.xpath("//div[text()='Select the brand of the product']//following-sibling::div");
     private final By PRODUCTCATEGORY = By.xpath("//div[text()='Select the category of the product']//following-sibling::div");
     private final By PRODUCTQUANTITY = By.xpath("//div/label[text()='Product Quantity']//following-sibling::div/input");
     private final By PRODUCTSKU = By.xpath("//div/label[text()='Product SKU']//following-sibling::div/input");
     private final By PRODUCTPRICE = By.xpath("//div/label[text()='Price']//following-sibling::div/input");
+    private final By COSTPRICE = By.xpath("//div/label[text()='Cost Price']//following-sibling::div/input");
     private final By ACTUALMSG = By.xpath("//div[@role='alert']//child::div//following-sibling::div");
     private final By SUBMIT = By.xpath("//button[text()='Submit']");
     private final By CLOSEPRODUCT = By.xpath("//div[@role='dialog']/button/i[@class='fal fa-times']");
 
+    //Product form buttons
     private final By ADDPRODSUBMIT = By.xpath("//button[text() = 'Submit']");
     private final By MESSAGEERROR = By.xpath("//p[@class='styles_error__1kXZV']");
+    private final By DELETEMESSAGE = By.xpath("//div[1]/div[@role='alert']/div[contains(text(), 'Deleted successfully')]");
 
 
     public Inventory btnCloseAddForm(){
@@ -55,6 +64,11 @@ public class Inventory {
 
     public Inventory btnAddIcon(){
         Utilities.clickWait(ADDICON);
+        return this;
+    }
+
+    public Inventory DeleteIcon(){
+        Utilities.clickWait(DELETEICON);
         return this;
     }
 
@@ -100,10 +114,20 @@ public class Inventory {
         return this;
     }
 
+    public Inventory fillFormNonReq(String CostPrice){
+        Utilities.type(COSTPRICE, CostPrice);
+        return this;
+    }
+
     public Inventory chckMessage(String message1) {
         Utilities.isElementPresent(HEADER);
         Utilities.wt( 2000);
         Utilities.compareText(HEADER, message1);
+        return this;
+    }
+
+    public Inventory chckMessageDelete() {
+        Assert.assertTrue( Utilities.isElementPresent(DELETEMESSAGE));
         return this;
     }
 
@@ -115,4 +139,19 @@ public class Inventory {
         return this;
     }
 
+    public Inventory chckDeleteModal()
+    {
+        Assert.assertTrue( Utilities.isElementPresent(DELETEMODAL));
+        return this;
+    }
+
+    public Inventory btnConfirmDelete(){
+        Utilities.clickWait(CONFIRMDELETE);
+        return this;
+    }
+
+    public Inventory btnCancelDelete(){
+        Utilities.clickWait(CANCELDELETE);
+        return this;
+    }
 }
