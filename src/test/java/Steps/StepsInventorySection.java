@@ -68,7 +68,7 @@ public class StepsInventorySection {
     public void clickOnTheSubmitButton() {objInventory.btnAddProductSubmit();
     }
 
-    @And("the user enters ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*) info$")
+    @And("the user enters ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*) and ([^\"]*)$")
     public void theUserEntersProductNameAndProductBrandAndProductCategoryAndProductQuantityAndProductSKUAndPriceInfo(String ProductName, String ProductBrand, String ProductCategory, String ProductQuantity, String ProductSKU, String Price) {
         objInventory.fillForm(ProductName, ProductBrand, ProductCategory, ProductQuantity, ProductSKU, Price);
     }
@@ -108,6 +108,42 @@ public class StepsInventorySection {
     @Then("the new brand is added successfully")
     public void theNewBrandIsAddedSuccessfully() {
     }
+
+    @And("the user clicks on the delete icon button")
+    public void theUserClicksOnTheDeleteIconButton() {
+        objInventory.DeleteIcon();
+    }
+
+    @Then("the delete product modal is displayed")
+    public void theDeleteProductModalIsDisplayed() {
+        objInventory.chckDeleteModal();
+    }
+
+    @And("click on CANCEL")
+    public void clickOnCANCEL() {
+        objInventory.btnCancelDelete();
+    }
+
+    @Then("The product is delete successfully")
+    public void theProductIsDeleteSuccessfully() {
+        objInventory.chckMessageDelete();
+        Utilities.wt( 1000);
+    }
+
+    @And("click on DELETE")
+    public void clickOnDELETE() {
+        objInventory.btnCancelDelete();
+    }
+
+    @And("the ([^\"]*) information$")
+    public void theCostPriceInfo(String CostPrice) {
+        objInventory.fillNonReq(CostPrice);
+    }
+
+//    @And("([^\"]*) info$")
+//    public void costpriceInfo(String CostPrice) {
+//        objInventory.fillNonReq(CostPrice);
+//    }
 
 //    @AfterAll
 //    public static void afterAll() {
