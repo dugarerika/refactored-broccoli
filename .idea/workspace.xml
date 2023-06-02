@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e1a9f6b-2816-4b00-8a34-b3d6d450b636" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pom/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pom/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pom/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pom/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Runners/RunnerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Runners/RunnerTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Steps/StepsInventorySection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Steps/StepsInventorySection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Steps/StepsLogInVendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Steps/StepsLogInVendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Steps/StepsStaffVendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Steps/StepsStaffVendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Calendar.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Calendar.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Inventory.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Inventory.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/Staff.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/Staff.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/login.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pom/Calendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pom/Calendar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pom/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pom/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/Utilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/Utilities.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Runners/RunnerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Runners/RunnerTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Steps/StepsInventorySection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Steps/StepsInventorySection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Steps/StepsLogInVendor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Steps/StepsLogInVendor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Steps/StepsStaffVendor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Steps/StepsStaffVendor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/Calendar.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/Calendar.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/Inventory.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/Inventory.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/Staff.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/Staff.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/login.feature" afterDir="false" />
-    </list>
+    <list default="true" id="5e1a9f6b-2816-4b00-8a34-b3d6d450b636" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +139,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Inventory" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
