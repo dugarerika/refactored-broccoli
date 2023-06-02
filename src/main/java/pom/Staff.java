@@ -21,7 +21,6 @@ public class Staff {
 //    public Inventory fillInventory(String strUserName, String strPassword){
 //        Utilities.type(, strUserName);
 //        Utilities.type(,strPassword);
-//
 //        return this;
 //    }
 
