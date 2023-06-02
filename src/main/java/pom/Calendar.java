@@ -37,7 +37,9 @@ public class Calendar {
 
     public Calendar btnTimeSlot(String staff, String time)
     {
-        final By TIMESLOT = By.xpath("//div[@class='rbc-time-content']//child::div["+staff+"]/div/div[@class='rbc-time-slot rbc-available']/span[text()='"+time+"']");
+        final By POSITIONNNODE = By.xpath("//span[text()='"+staff+"']//ancestor::div[@class='rbc-time-header-content']/preceding-sibling::div[@class='rbc-time-header-content']");
+        String snode = Utilities.node(POSITIONNNODE);
+        final By TIMESLOT = By.xpath("//div[@class='rbc-time-content']//child::div["+snode+"]/div/div[@class='rbc-time-slot rbc-available']/span[text()='"+time+"']");
         Utilities.wt( 100);
         if (Utilities.isElementPresent(TIMESLOT))
         {

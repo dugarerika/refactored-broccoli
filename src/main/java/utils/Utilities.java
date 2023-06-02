@@ -55,6 +55,14 @@ public class Utilities {
 		return driver.findElements((By) by);
 	}
 
+	public static String node(By by) {
+		int indexval = driver.findElements((By) by).size() + 1;
+		String sindexval = Integer.toString(indexval);
+		return (sindexval);
+	}
+
+
+
 	public static void wt(long millis) {
 		try {
 			Thread.sleep(millis);

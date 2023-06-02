@@ -16,7 +16,7 @@ Feature: Vendor Login
   Scenario: Email credential is required
     When the user enters credentials
       | Email | Password |
-      |       | secretx  |
+      | null  | secretx  |
     And hits SIGN IN
     Then error message username address is required is displayed
     And Close browser
@@ -24,7 +24,7 @@ Feature: Vendor Login
   Scenario: Password credential is required
     When the user enters credentials
       | Email | Password |
-      | testx |          |
+      | testx |  null    |
     And hits SIGN IN
     Then error message Password is required displayed
     And Close browser
@@ -41,9 +41,9 @@ Feature: Vendor Login
     Then the user should be logged successfully
     And Close browser
     Examples:
-      |Role         | Email     | Password    |
-      |Admin        | testsalon | testsalon1o |
-      |Staff        | Nube      | 1234567890  |
-      |Read-Only    | readonly6 | 1234567890  |
-      |Receptionist | Atardecer | 1234567890  |
+      |Role         | Email                | Password    |
+      |Admin        | testsalon            | testsalon1o |
+      |Staff        | Oba824590@Test-Salon | 1234567890  |
+      |Read-Only    | read41911@Test-Salon | 1234567890  |
+      |Receptionist | sam62579@Test-Salon  | 1234567890  |
 

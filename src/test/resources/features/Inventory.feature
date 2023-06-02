@@ -28,6 +28,8 @@ Feature: Vendor Inventory
   Scenario: Verify 'ADD BRAND' '+' to create a new brand works properly
     When the user clicks on the + icon
     And type a New Brand
+      | Brand |
+      | Laroche |
     And Click on CREATE button
     Then the new brand is added successfully
     And Close
@@ -63,7 +65,7 @@ Feature: Vendor Inventory
   Scenario Outline: Verify required fields on Add Brand form and the expected message
     When the user clicks on the inventory icon
     And the user clicks on the ADD PRODUCT button
-    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price> info
+    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price>
     And click on the Submit button
     Then The <ExpectedMessage> is displayed
     And clicks on close form
@@ -83,21 +85,21 @@ Feature: Vendor Inventory
   Scenario Outline: Verify required fields on Add Brand form
     When the user clicks on the inventory icon
     And the user clicks on the ADD PRODUCT button
-    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price> info
+    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price>
     And click on the Submit button
     Then The <ExpectedMessage> is displayed
     And Close
     Examples:
-      | ProductName | ProductSKU | ProductQuantity | Price | ProductBrand | ProductCategory | ExpectedMessage                |
-      | Deva Curls  | Dev@       | 10              | 30.4  | Inecto       | Uncategorized   | Created successfully           |
-      | Coconut Conditioner | 1234        | 2               | 20.5  | Inecto       | Uncategorized   | Created successfully  |
-      | Coconut Hair Mask | 1234        | 20               | 6.5  | Inecto       | Uncategorized   | Created successfully    |
+      | ProductName         | ProductSKU | ProductQuantity | Price | ProductBrand | ProductCategory | ExpectedMessage      |
+      | Deva Curls          | Dev@       | 10              | 30.4  | Inecto       | Uncategorized   | Created successfully |
+      | Coconut Conditioner | 1234       | 2               | 20.5  | Inecto       | Uncategorized   | Created successfully |
+      | Coconut Hair Mask   | 1234       | 20              | 6.5   | Inecto       | Uncategorized   | Created successfully |
 
   Scenario Outline: Verify non required field Cost Price on Add Brand form and the expected message
     When the user clicks on the inventory icon
     And the user clicks on the ADD PRODUCT button
-    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price> info
-    And the <CostPrice> information
+    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price>
+    And the <CostPrice> Cost Price
     And click on the Submit button
     Then The <ExpectedMessage> is displayed
     And Close
@@ -106,3 +108,17 @@ Feature: Vendor Inventory
       | kerastase   | KERA       | 6               | 10.4  | &&&&&&       | Uncategorized   | e         | Created successfully |
       | Bioderma aqu| VITX       | 1               | 99.5  | &&&&&&       | Uncategorized   | 4.5       | Created successfully |
       | Vitamina C  | BIO        | 100             | 3.5   | 999999       | Uncategorized   | 10        | Created successfully |
+
+  Scenario Outline: Verify non required Supplier Phone on Add Brand form and the expected message
+    When the user clicks on the inventory icon
+    And the user clicks on the ADD PRODUCT button
+    And the user enters <ProductName> and <ProductBrand> and <ProductCategory> and <ProductQuantity> and <ProductSKU> and <Price>
+    And the <SupplierPhone> Supplier Phone
+    And click on the Submit button
+    Then The <ExpectedMessage> is displayed
+    And Close
+    Examples:
+      | ProductName | ProductSKU | ProductQuantity | Price | ProductBrand | ProductCategory | SupplierPhone | ExpectedMessage      |
+      | kerastase   | KERA       | 6               | 10.4  | &&&&&&       | Uncategorized   | 38717494      | Created successfully |
+      | Bioderma aqu| VITX       | 1               | 99.5  | &&&&&&       | Uncategorized   | 4.5           | Mobile number not valid |
+      | Vitamina C  | BIO        | 100             | 3.5   | 999999       | Uncategorized   | 1034567       | Mobile number not valid |

@@ -35,14 +35,13 @@ public class Inventory {
     private final By PRODUCTQUANTITY = By.xpath("//div/label[text()='Product Quantity']//following-sibling::div/input");
     private final By PRODUCTSKU = By.xpath("//div/label[text()='Product SKU']//following-sibling::div/input");
     private final By PRODUCTPRICE = By.xpath("//div/label[text()='Price']//following-sibling::div/input");
-    private final By COSTPRICE = By.xpath("//div/label[text()='Cost Price']//following-sibling::div/input");
     private final By ACTUALMSG = By.xpath("//div[@role='alert']//child::div//following-sibling::div");
     private final By SUBMIT = By.xpath("//button[text()='Submit']");
     private final By CLOSEPRODUCT = By.xpath("//div[@role='dialog']/button/i[@class='fal fa-times']");
 
     //Product form buttons
-    private final By ADDPRODSUBMIT = By.xpath("//button[text() = 'Submit']");
-    private final By MESSAGEERROR = By.xpath("//p[@class='styles_error__1kXZV']");
+//    private final By ADDPRODSUBMIT = By.xpath("//button[text() = 'Submit']");
+//    private final By MESSAGEERROR = By.xpath("//p[@class='styles_error__1kXZV']");
     private final By DELETEMESSAGE = By.xpath("//div[1]/div[@role='alert']/div[contains(text(), 'Deleted successfully')]");
 
 
@@ -110,13 +109,6 @@ public class Inventory {
         return this;
     }
 
-    public Inventory chckMessage(String message1){
-        Utilities.isElementPresent(HEADER);
-        Utilities.wt( 2000);
-        Utilities.compareText(HEADER, message1);
-        return this;
-    }
-
     public Inventory fillBrandName(String BranName){
         Utilities.isElementPresent(INPUTBRANDNAME);
         Utilities.clickWait(INPUTBRANDNAME);
@@ -124,10 +116,10 @@ public class Inventory {
         return this;
     }
 
-    public Inventory fillNonReq(String CostPrice){
-        Utilities.type(COSTPRICE, CostPrice);
-        return this;
-    }
+//    public Inventory fillNonReq(String CostPrice){
+//        Utilities.type(COSTPRICE, CostPrice);
+//        return this;
+//    }
 
     public Inventory chckMessageDelete(){
         Assert.assertTrue( Utilities.isElementPresent(DELETEMESSAGE));
@@ -154,5 +146,11 @@ public class Inventory {
         return this;
     }
 
+    public Inventory chckMessage(String message1){
+        Utilities.isElementPresent(HEADER);
+        Utilities.wt( 2000);
+        Utilities.compareText(HEADER, message1);
+        return this;
+    }
 
 }

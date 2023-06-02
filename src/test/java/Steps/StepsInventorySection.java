@@ -5,6 +5,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.By;
 import pom.Inventory;
 import pom.LoginVendor;
 import utils.Utilities;
@@ -12,16 +14,20 @@ import utils.Utilities;
 import java.util.List;
 
 public class StepsInventorySection {
+
+    private final By COSTPRICE = By.xpath("//div/label[text()='Cost Price']//following-sibling::div/input");
+    private final By SUPPLIERPHONE = By.xpath("//div/label[text()='Supplier Phone']//following-sibling::div/input");
+
     static LoginVendor objLogin = new LoginVendor();
     Inventory objInventory = new Inventory();
 
 
-//    @BeforeAll
-//    public  void beforeAll() {
-//        Utilities.openUrl("https://vendor.bookr-dev.com");
-//        objLogin.fillLogin("testsalon", "testsalon1o");
-//        objLogin.btnlogInVendor();
-//    }
+    @BeforeAll
+    public  void beforeAll() {
+        Utilities.openUrl("https://vendor.bookr-dev.com");
+        objLogin.fillLogin("testsalon", "testsalon1o");
+        objLogin.btnlogInVendor();
+    }
 
 //    @After
 //    public void afterScenario() {
@@ -96,8 +102,9 @@ public class StepsInventorySection {
     }
 
     @And("type a New Brand")
-    public void typeANewBrand() {
-        objInventory.fillBrandName("NUEVA");
+    public void typeANewBrand(DataTable table) {
+        List<List<String>> data = table.asLists(String.class);
+        objInventory.fillBrandName(data.get(1).get(0));
     }
 
     @And("Click on CREATE button")
@@ -127,17 +134,21 @@ public class StepsInventorySection {
     @Then("The product is delete successfully")
     public void theProductIsDeleteSuccessfully() {
         objInventory.chckMessageDelete();
-        Utilities.wt( 1000);
     }
 
     @And("click on DELETE")
     public void clickOnDELETE() {
-        objInventory.btnCancelDelete();
+        objInventory.btnConfirmDelete();
     }
 
-    @And("the ([^\"]*) information$")
+    @And("the ([^\"]*) Cost Price$")
     public void theCostPriceInfo(String CostPrice) {
-        objInventory.fillNonReq(CostPrice);
+        Utilities.type(COSTPRICE, CostPrice);
+    }
+
+    @And("the ([^\"]*) Supplier Phone$")
+    public void theSupplierPhoneSupplierPhone(String SupplierPhone) {
+        Utilities.type(SUPPLIERPHONE, SupplierPhone);
     }
 
 //    @And("([^\"]*) info$")

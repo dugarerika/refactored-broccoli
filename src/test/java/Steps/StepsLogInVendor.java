@@ -77,8 +77,8 @@ public class StepsLogInVendor {
     @When("the user enters credentials")
     public void theUserEntersCredentials(DataTable table) {
         List<List<String>> data = table.asLists(String.class);
-        System.out.print(data.get(1).get(0));
-        System.out.print(data.get(1).get(1));
+//        System.out.print(data.get(1).get(0));
+//        System.out.print(data.get(1).get(1));
         if(data.get(1).get(0) == null) objLogin.fillLogin("", data.get(1).get(1));
         else if (data.get(1).get(1) == null)  objLogin.fillLogin(data.get(1).get(0), "");
         else objLogin.fillLogin(data.get(1).get(0), data.get(1).get(1));
